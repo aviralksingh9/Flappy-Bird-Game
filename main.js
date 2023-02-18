@@ -13,10 +13,14 @@ let gameSpeed = 2;
 let temp = canvas.height - 90;
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  handleObstacles();
   bird.update();
   bird.draw();
+  handleParticles();
   requestAnimationFrame(animate);
   angle += 0.12;
+  hue++;
+  frame++;
 }
 
 animate();
@@ -33,3 +37,6 @@ window.addEventListener("keyup", (e) => {
   if (e.code === "Space") spacePressed = false;
   //   temp--;
 });
+
+const bang = new Image();
+bang.src = "bang.png";
